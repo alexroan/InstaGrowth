@@ -62,7 +62,6 @@ for follower in followers:
 
 	current_time = datetime.now()
 	delta_time = current_time - start_time;
-	print("Delta time: %sseconds" % str(delta_time.total_seconds()))
 	#if wait is longer than wait time, unfollow first in queue
 	if delta_time.total_seconds() >= wait_time:
 		queued_user = q.get()
