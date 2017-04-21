@@ -44,16 +44,16 @@ for follower in followers:
 	username = bot.get_user_info(follower)['username']
 	print("Trying to follow: %s" % username)
 	#follow user
-	if bot.follow(follower):
+	if bot.follow(follower) == True:
 		print("Followed: %s" % username)
 		print("Trying to like media from: %s" % username)
 		#like media from user
-		if bot.like_user(follower):
+		if bot.like_user(follower) == True:
 			print("Liked media from: %s" % username)
 		else:
 			print("Could not like media from %s" % username)
 		#if just starting, set timer
-		if q.empty():
+		if q.empty() == True:
 			start_time = datetime.now()
 		q.put(follower)
 	else:
@@ -68,7 +68,7 @@ for follower in followers:
 		queued_user = q.get()
 		username = bot.get_user_info(queued_user)['username']
 		print("Trying to unfollow: %s" % username)
-		if bot.unfollow(queued_user):
+		if bot.unfollow(queued_user) == True:
 			print("Unfollowed: %s" % username)
 		else:
 			print("Could not unfollow: %s" % username)
